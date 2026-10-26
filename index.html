@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wiser · Slotting de almacén</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@stlite/browser@1.12.0/build/stlite.css" />
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module">
+    import { mount } from "https://cdn.jsdelivr.net/npm/@stlite/browser@1.12.0/build/stlite.js";
+    mount(
+      {
+        entrypoint: "streamlit_app.py",
+        requirements: ["numpy", "pandas", "scipy"],
+        files: {
+          // El código vive en wiser_app.py; stlite lo descarga y lo ejecuta en el navegador.
+          "streamlit_app.py": { url: "./wiser_app.py" },
+        },
+      },
+      document.getElementById("root")
+    );
+  </script>
+</body>
+</html>
